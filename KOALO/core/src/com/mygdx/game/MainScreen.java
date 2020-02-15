@@ -28,7 +28,7 @@ public class MainScreen implements Screen {
     }
     
     public void show() {
-        map = new TmxMapLoader().load("level4.tmx");
+        map = new TmxMapLoader().load("level2.tmx");
         final float pixelsPerTile = 16;
         renderer = new OrthogonalTiledMapRenderer(map, 1 / pixelsPerTile);
         camera = new OrthographicCamera();
@@ -65,6 +65,8 @@ public class MainScreen implements Screen {
         this.morirBicho();
         this.morirBala();
         
+        this.pasasPantall();
+        
         stage.act(delta);
         stage.draw();
     }
@@ -93,6 +95,16 @@ public class MainScreen implements Screen {
         
     
     }
+    public void pasasPantall(){
+                
+            if(koala.getX() > 235) {
+                System.out.println("has ganado");
+                 game.setScreen((Screen) new PasasPantalla(game));
+                
+            }
+            
+    
+    }
      public void morirBicho(){
         
         Iterator<Bicho> iter = bichos.iterator();
@@ -101,10 +113,9 @@ public class MainScreen implements Screen {
             Bicho bicho = iter.next();
             if(koala.getX() < bicho.getX() +1 && bicho.getX() -1 < koala.getX() && koala.getY() < bicho.getY() +1 && bicho.getY() -1 < koala.getY() ) {
                 System.out.println("pum muerto");
-                //con.setY(-10); 
-                 game.setScreen((Screen) new PantallaLoose(game));
                  dispose();
-                 koala.remove();
+                 game.setScreen((Screen) new PantallaLoose(game));
+                
             }
             
         }
@@ -120,7 +131,7 @@ public class MainScreen implements Screen {
             if(koala.getX() < bicho.getX() +1 && bicho.getX() -1 < koala.getX() && koala.getY() < bicho.getY() +1 && bicho.getY() -1 < koala.getY() ) {
                 System.out.println("pum muerto");
             //con.setY(-10);
-                koala.remove();
+                 game.setScreen((Screen) new PantallaLoose(game));
             }
             
         }

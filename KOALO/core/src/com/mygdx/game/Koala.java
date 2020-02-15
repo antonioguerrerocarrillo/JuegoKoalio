@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 public class Koala extends Image {
     TextureRegion stand, jump;
     Animation walk;
-      SpriteBatch batch;
+
     BitmapFont font;
     float time = 0;
     float xVelocity = 0;
@@ -78,10 +78,10 @@ public class Koala extends Image {
             if (canMoveTo(x, y + yChange, yVelocity > 0) == false) {
                 canJump = yVelocity < 0;
                 yVelocity = yChange = 0;
-                System.out.println("Me pegao la ostia");
+                
             }
         } else {
-             System.out.println("Entro en el hit malo");
+            // System.out.println("Entro en el hit malo");
 
             if (canMoveTo(x, y + yChange, false) == false) {
                 canJump = yVelocity < 0;

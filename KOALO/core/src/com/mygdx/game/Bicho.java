@@ -22,10 +22,10 @@ public class Bicho extends Image {
 
     public Bicho() {
         final float width = 20;
-        final float height = 20;
+        final float height = 25;
         this.setSize(1, height / width);
 
-        Texture koalaTexture = new Texture("planta.png");
+        Texture koalaTexture = new Texture("planta2.png");
         TextureRegion[][] grid = TextureRegion.split(koalaTexture, (int) width, (int) height);
 
         stand = grid[0][0];
